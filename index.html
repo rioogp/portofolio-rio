@@ -471,8 +471,7 @@
         personalInfo: {
           name: "RIO GRIYA PUTRA",
           title: "Full Stack Developer",
-          photo:
-            "img/DSC05174.JPG", // <-- GANTI URL FOTO ANDA
+          photo: "img/DSC05174.JPG", // <-- GANTI URL FOTO ANDA
           contact: {
             email: "riogriyaputra@gmail.com",
             phone: "+6281386308255",
@@ -589,8 +588,7 @@
         projects: [
           {
             name: "K-etik Web App, Komite Etik Website",
-            image:
-              "img/logo-ketik.png", // <-- GANTI URL GAMBAR
+            image: "img/logo-ketik.png", // <-- GANTI URL GAMBAR
             period: "Feb 2024 – Jul 2024", // <-- Menghapus duplikasi period
             associatedWith: "Universitas YARSI - Project",
             description:
@@ -615,8 +613,7 @@
           },
           {
             name: "TerbangIn - Domestic Flight Booking App (Android)",
-            image:
-              "img/logo-terbangin.png", // <-- GANTI URL GAMBAR
+            image: "img/logo-terbangin.png", // <-- GANTI URL GAMBAR
             period: "Feb 2023 – Jun 2023",
             associatedWith: "Binar Academy - Project",
             description:
@@ -715,14 +712,9 @@
         document.getElementById("profile-title").textContent =
           personalInfo.title;
         // Ambil kalimat pertama untuk hero summary
-        const summarySentences =
-          personalInfo.profileSummary.match(/[^.!?]+[.!?]+/g);
-        document.getElementById("profile-summary-hero").textContent =
-          summarySentences
-            ? summarySentences.slice(0, 2).join(" ") + "..."
-            : personalInfo.profileSummary.substring(0, 150) + "...";
-        document.getElementById("profile-summary-about").textContent =
-          personalInfo.profileSummary;
+        const summarySentences = (document.getElementById(
+          "profile-summary-about"
+        ).textContent = personalInfo.profileSummary);
 
         // Render Social Links (Hero & Contact)
         const socialLinksHeroContainer =
@@ -905,7 +897,7 @@
                     }">
                         <img src="${proj.image}" alt="Preview Proyek ${
             proj.name
-          }" class="w-full h-56 object-cover">
+          }" class="w-full h-56 object-contain">
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-semibold text-blue-700 mb-1">
                                 <a href="${
