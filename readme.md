@@ -43,7 +43,7 @@ Jika Anda ingin menjalankan proyek ini secara lokal:
     ```
 2.  **Masuk ke direktori proyek:**
     ```bash
-    cd [NAMA_REPOSITORI_ANDA]
+    cd portofolio-rio/
     ```
 3.  **Buka file `index.html`** di browser pilihan Anda.
 
