@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ganti title jika perlu dari data -->
     <title>Portfolio - RIO GRIYA PUTRA</title>
 
     <!-- Tailwind CSS CDN -->
@@ -12,905 +13,803 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Devicon CDN -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 
     <!-- Font Awesome for Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: #f8fafc; /* Tailwind gray-50 */
-      }
-      section {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-      }
-      #mobile-menu {
-        transition: max-height 0.3s ease-out;
-      }
-      nav a::after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        background: #3b82f6; /* Tailwind blue-500 */
-        transition: width 0.3s;
-      }
-      nav a:hover::after {
-        width: 100%;
-      }
-      .devicon {
-        font-size: 2.5rem;
-        transition: transform 0.2s ease-in-out;
-      }
-      .devicon:hover {
-        transform: scale(1.1);
-      }
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #f8fafc; /* Tailwind gray-50 */
+        }
+        section {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        #mobile-menu {
+            transition: max-height 0.3s ease-out;
+        }
+        nav a::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #3b82f6; /* Tailwind blue-500 */
+            transition: width 0.3s;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .devicon {
+            font-size: 2.5rem;
+            transition: transform 0.2s ease-in-out;
+        }
+        .devicon:hover {
+            transform: scale(1.1);
+        }
+        /* Tambahkan style untuk memastikan konten dinamis tidak merusak layout awal */
+        #experience-list > div, #projects-grid > div, #certificates-grid > div, #organization-list > div {
+            opacity: 0; /* Start hidden for AOS */
+        }
     </style>
     <!-- Google Fonts (optional, example: Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="text-gray-800">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="text-gray-800">
     <!-- Navbar -->
     <nav class="bg-white shadow-md fixed w-full z-50 top-0">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <div class="flex-shrink-0">
-            <!-- Link Home -->
-
-            <a href="#home" class="text-xl font-bold text-blue-600">RIO G.P.</a>
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
-              <a
-                href="#about"
-                class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >Tentang</a
-              >
-              <a
-                href="#education"
-                class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >Pendidikan</a
-              >
-              <a
-                href="#experience"
-                class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >Pengalaman</a
-              >
-              <a
-                href="#projects"
-                class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >Proyek</a
-              >
-              <a
-                href="#skills"
-                class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >Keahlian</a
-              >
-              <a
-                href="#certificates"
-                class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >Sertifikat</a
-              >
-              <a
-                href="#contact"
-                class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >Kontak</a
-              >
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" id="nav-brand" class="text-xl font-bold text-blue-600">RIO G.P.</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Tentang</a>
+                        <a href="#education" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Pendidikan</a>
+                        <a href="#experience" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Pengalaman</a>
+                        <a href="#projects" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Proyek</a>
+                        <a href="#skills" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Keahlian</a>
+                        <a href="#certificates" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Sertifikat</a>
+                        <a href="#organizations" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Organisasi</a>
+                        <a href="#contact" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Kontak</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-          </div>
-
-          <!-- Mobile Menu Button -->
-
-          <div class="md:hidden">
-            <button
-              id="mobile-menu-button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Open main menu</span>
-              <svg
-                class="block h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
-              <svg
-                class="hidden h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
-      </div>
-
-      <!-- Mobile Menu -->
-
-      <div class="md:hidden hidden" id="mobile-menu">
-        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="#about"
-            class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >Tentang</a
-          >
-          <a
-            href="#education"
-            class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >Pendidikan</a
-          >
-          <a
-            href="#experience"
-            class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >Pengalaman</a
-          >
-          <a
-            href="#projects"
-            class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >Proyek</a
-          >
-          <a
-            href="#skills"
-            class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >Keahlian</a
-          >
-          <a
-            href="#certificates"
-            class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >Sertifikat</a
-          >
-          <a
-            href="#contact"
-            class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-            >Kontak</a
-          >
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Tentang</a>
+                <a href="#education" class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Pendidikan</a>
+                <a href="#experience" class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Pengalaman</a>
+                <a href="#projects" class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Proyek</a>
+                <a href="#skills" class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Keahlian</a>
+                <a href="#certificates" class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sertifikat</a>
+                <a href="#organizations" class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Organisasi</a>
+                <a href="#contact" class="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Kontak</a>
+            </div>
         </div>
-      </div>
     </nav>
 
     <!-- Spacer for fixed navbar -->
-
     <div class="pt-16"></div>
 
     <!-- Home/Hero Section -->
-
-    <section
-      id="home"
-      class="bg-gradient-to-r from-blue-50 to-indigo-100 py-20 min-h-screen flex items-center"
-    >
-      <div
-        class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center text-center md:text-left"
-        data-aos="fade-up"
-      >
-        <!-- Profile Image Placeholder -->
-
-        <div class="flex-shrink-0 mb-6 md:mb-0 md:mr-10">
-          <img
-            src="https://via.placeholder.com/200/E0E7FF/3B82F6?text=Foto+Profil"
-            alt="Foto Profil Rio Griya Putra"
-            class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover shadow-lg mx-auto md:mx-0 border-4 border-white"
-          />
+    <section id="home" class="bg-gradient-to-r from-blue-50 to-indigo-100 py-20 min-h-screen flex items-center">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center text-center md:text-left" data-aos="fade-up">
+            <!-- Profile Image -->
+            <div class="flex-shrink-0 mb-6 md:mb-0 md:mr-10">
+                <img id="profile-photo" src="https://via.placeholder.com/200/E0E7FF/3B82F6?text=Foto+Profil" alt="Foto Profil Rio Griya Putra" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover shadow-lg mx-auto md:mx-0 border-4 border-white" />
+            </div>
+            <!-- Text Content -->
+            <div class="flex-grow">
+                <h1 id="profile-name" class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-3">
+                    <!-- Nama akan diisi oleh JS -->
+                </h1>
+                <h2 id="profile-title" class="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">
+                    <!-- Title akan diisi oleh JS -->
+                </h2>
+                <p id="profile-summary-hero" class="text-lg text-gray-600 max-w-3xl mx-auto md:mx-0 mb-8">
+                    <!-- Ringkasan singkat akan diisi oleh JS -->
+                </p>
+                <div id="social-links-hero" class="flex justify-center md:justify-start space-x-6 mb-10">
+                    <!-- Social links akan diisi oleh JS -->
+                </div>
+                <div class="mt-8">
+                    <a href="#about" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 text-lg inline-block">
+                        Pelajari Lebih Lanjut <i class="fas fa-arrow-down ml-2"></i>
+                    </a>
+                     <!-- Optional: Link CV/Portfolio -->
+                     <a id="cv-link" href="#" target="_blank" rel="noopener noreferrer" class="ml-4 text-blue-600 hover:text-blue-800 transition duration-300">
+                        Lihat CV
+                    </a>
+                     <a id="portfolio-link" href="#" target="_blank" rel="noopener noreferrer" class="ml-4 text-blue-600 hover:text-blue-800 transition duration-300">
+                        Portfolio Lain
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <!-- Text Content -->
-
-        <div class="flex-grow">
-          <h1
-            class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-3"
-          >
-            RIO GRIYA PUTRA
-          </h1>
-          <h2 class="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">
-            Full Stack Developer
-          </h2>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto md:mx-0 mb-8">
-            Fullstack Developer with over 1 year of experience in building
-            end-to-end web and mobile applications... Passionate about
-            delivering impactful products through continuous learning and
-            collaboration.
-          </p>
-          <div class="flex justify-center md:justify-start space-x-6 mb-10">
-            <!-- Social Links with actual URLs -->
-
-            <a
-              href="https://github.com/rioogp"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-gray-700 hover:text-blue-600 transition duration-300"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github fa-2x"></i>
-            </a>
-            <a
-              href="https://linkedin.com/in/rio-griya-putra"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-gray-700 hover:text-blue-600 transition duration-300"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin fa-2x"></i>
-            </a>
-            <a
-              href="mailto:riogriyaputra@gmail.com"
-              class="text-gray-700 hover:text-blue-600 transition duration-300"
-              aria-label="Email"
-            >
-              <i class="fas fa-envelope fa-2x"></i>
-            </a>
-            <a
-              href="tel:+6281386308255"
-              class="text-gray-700 hover:text-blue-600 transition duration-300"
-              aria-label="Phone"
-            >
-              <i class="fas fa-phone fa-2x"></i>
-            </a>
-          </div>
-          <div class="mt-8">
-            <a
-              href="#about"
-              class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300 text-lg inline-block"
-            >
-              Pelajari Lebih Lanjut <i class="fas fa-arrow-down ml-2"></i>
-            </a>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- About Section -->
-
     <section id="about" class="bg-white">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
-          Tentang Saya
-        </h2>
-        <div
-          class="text-center max-w-4xl mx-auto"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <p class="text-lg text-gray-700 leading-relaxed">
-            Fullstack Developer with over 1 year of experience in building
-            end-to-end web and mobile applications using Java, Kotlin, Spring
-            Boot for backend and ReactJS for frontend. Skilled in designing
-            scalable APIs, managing relational databases with SQL, and crafting
-            responsive, user-centric interfaces. Experienced in integrating
-            frontend and backend seamlessly, optimizing performance, and
-            maintaining clean, modular code across the stack. Passionate about
-            delivering impactful products through continuous learning and
-            collaboration. Always up to date with the latest in web technologies
-            and best development practices.
-          </p>
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+                Tentang Saya
+            </h2>
+            <div class="text-center max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <p id="profile-summary-about" class="text-lg text-gray-700 leading-relaxed">
+                    <!-- Summary lengkap akan diisi oleh JS -->
+                </p>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Education Section -->
-
     <section id="education" class="bg-gray-50">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
-          Pendidikan
-        </h2>
-        <div class="space-y-8">
-          <!-- Education Item 1 -->
-
-          <div
-            class="bg-white p-6 rounded-lg shadow-md border border-gray-200"
-            data-aos="fade-up"
-          >
-            <div
-              class="flex flex-col md:flex-row justify-between md:items-center mb-2"
-            >
-              <h3 class="text-xl font-semibold text-blue-700">
-                Universitas YARSI
-              </h3>
-              <span class="text-sm text-gray-500 mt-1 md:mt-0"
-                >2020 ��� 2024</span
-              >
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+                Pendidikan
+            </h2>
+            <div id="education-list" class="space-y-8">
+                <!-- Konten Pendidikan akan diisi oleh JS -->
             </div>
-            <p class="text-lg font-medium text-gray-800 mb-1">
-              Informatics Engineering
-            </p>
-            <p class="text-sm text-gray-600 mb-3">
-              <i class="fas fa-map-marker-alt mr-1"></i> Jakarta, Indonesia |
-              GPA: 3.89 / 4.00
-            </p>
-            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
-              <li>Assistant Lecturer in Basic Programming [2021]</li>
-              <li>Assistant Lecturer in Basic Database [2022]</li>
-              <li>Assistant Lecturer in Object Oriented Programming [2023]</li>
-              <li>Assistant Lecturer in Basic Networking [2023]</li>
-              <li>Documentation Staff of HIMFO FTI [2022]</li>
-              <li>
-                MSIB Batch 3 – Web Developer, Independent Study Program at
-                Hacktiv8 [2022]
-              </li>
-              <li>
-                MSIB Batch 4 – Android Engineering, Independent Study Program at
-                Binar Academy [2023]
-              </li>
-            </ul>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Experience Section -->
-
     <section id="experience" class="bg-white">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
-          Pengalaman
-        </h2>
-        <div class="space-y-8">
-          <!-- Experience items remain the same as before -->
-
-          <div
-            class="bg-white p-6 rounded-lg shadow-md border border-gray-200"
-            data-aos="fade-left"
-          >
-            <div
-              class="flex flex-col md:flex-row justify-between md:items-center mb-2"
-            >
-              <h3 class="text-xl font-semibold text-blue-700">
-                Kampus Merdeka: Independent Study - Android Engineering
-              </h3>
-              <span class="text-sm text-gray-500 mt-1 md:mt-0"
-                >Feb 2023 – Jun 2023</span
-              >
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+                Pengalaman
+            </h2>
+            <div id="experience-list" class="space-y-8">
+                <!-- Konten Pengalaman akan diisi oleh JS -->
             </div>
-            <p class="text-lg font-medium text-gray-800 mb-1">Binar Academy</p>
-            <p class="text-sm text-gray-600 mb-3">
-              <i class="fas fa-map-marker-alt mr-1"></i> Jakarta, Indonesia
-            </p>
-            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
-              <li>Mastered Kotlin fundamentals...</li>
-              <li>Developed Android applications...</li>
-
-              <!-- ... other points -->
-
-              <li>
-                Collaborated with Fullstack Developer teams to build E-Flight
-                App, a flight booking application.
-              </li>
-            </ul>
-          </div>
-          <div
-            class="bg-white p-6 rounded-lg shadow-md border border-gray-200"
-            data-aos="fade-right"
-          >
-            <div
-              class="flex flex-col md:flex-row justify-between md:items-center mb-2"
-            >
-              <h3 class="text-xl font-semibold text-blue-700">
-                Kampus Merdeka: Independent Study - Web Developer
-              </h3>
-              <span class="text-sm text-gray-500 mt-1 md:mt-0"
-                >Aug 2022 – Dec 2022</span
-              >
-            </div>
-            <p class="text-lg font-medium text-gray-800 mb-1">Hacktiv8</p>
-            <p class="text-sm text-gray-600 mb-3">
-              <i class="fas fa-map-marker-alt mr-1"></i> Jakarta, Indonesia
-            </p>
-            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
-              <li>Completed an intensive program...</li>
-
-              <!-- ... other points -->
-
-              <li>
-                Successfully designed, built, and deployed Demo App as part of
-                the program.
-              </li>
-            </ul>
-          </div>
-
-          <!-- ... other experience items -->
-
-          <div
-            class="bg-white p-6 rounded-lg shadow-md border border-gray-200"
-            data-aos="fade-left"
-          >
-            <div
-              class="flex flex-col md:flex-row justify-between md:items-center mb-2"
-            >
-              <h3 class="text-xl font-semibold text-blue-700">
-                Object Oriented Programming Course - Assistant Lecturer
-              </h3>
-              <span class="text-sm text-gray-500 mt-1 md:mt-0"
-                >Sep 2022 – Jan 2023</span
-              >
-            </div>
-            <p class="text-lg font-medium text-gray-800 mb-1">
-              Universitas YARSI
-            </p>
-            <p class="text-sm text-gray-600 mb-3">
-              <i class="fas fa-map-marker-alt mr-1"></i> Jakarta, Indonesia
-            </p>
-            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
-              <li>
-                Facilitated the delivery of Object-Oriented Programming
-                concepts...
-              </li>
-
-              <!-- ... other points -->
-
-              <li>Evaluated student assignments...</li>
-            </ul>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Projects Section -->
-
     <section id="projects" class="bg-gray-50">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
-          Proyek
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Project Item 1: K-etik -->
-
-          <div
-            class="bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col overflow-hidden"
-            data-aos="zoom-in-up"
-          >
-            <!-- Project Image Placeholder -->
-
-            <img
-              src="https://via.placeholder.com/600x400/cccccc/888888?text=Proyek+K-etik"
-              alt="Preview Proyek K-etik Web App"
-              class="w-full h-56 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-semibold text-blue-700 mb-1">
-                <!-- Added Link Placeholder -->
-
-                <a
-                  href="#"
-                  class="hover:underline hover:text-blue-800 transition duration-200"
-                >
-                  K-etik Web App, Komite Etik Website
-                </a>
-              </h3>
-              <p class="text-sm text-gray-500 mb-3">Feb 2024 – Jul 2024</p>
-              <p class="text-gray-700 mb-4 flex-grow">
-                K-Etik is a web-based platform... designed to streamline the
-                submission, review, and approval process...
-              </p>
-              <div class="mb-4">
-                <h4 class="font-semibold text-gray-800 mb-2">
-                  Fitur Utama & Tanggung Jawab:
-                </h4>
-                <ul
-                  class="list-disc list-inside text-gray-700 space-y-1 text-sm"
-                >
-                  <li>Led overall application design...</li>
-                  <li>Built the responsive frontend...</li>
-
-                  <!-- ... other points -->
-                </ul>
-              </div>
-              <div class="mb-4">
-                <h4 class="font-semibold text-gray-800 mb-2">Teknologi:</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >React</span
-                  >
-                  <span
-                    class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >Vite</span
-                  >
-
-                  <!-- ... other technologies -->
-
-                  <span
-                    class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >NodeMailer</span
-                  >
-                </div>
-              </div>
-
-              <!-- Added Link Placeholders -->
-
-              <div class="mt-auto pt-4 border-t border-gray-200 flex space-x-4">
-                <a
-                  href="#"
-                  class="inline-block bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-300"
-                >
-                  <i class="fas fa-external-link-alt mr-1"></i> Lihat Live
-                  (Demo)
-                </a>
-                <a
-                  href="#"
-                  class="inline-block bg-gray-700 text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-800 transition duration-300"
-                >
-                  <i class="fab fa-github mr-1"></i> Kode Sumber
-                </a>
-              </div>
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+                Proyek
+            </h2>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Konten Proyek akan diisi oleh JS -->
             </div>
-          </div>
-
-          <!-- Project Item 2: TravelIn -->
-
-          <div
-            class="bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col overflow-hidden"
-            data-aos="zoom-in-up"
-            data-aos-delay="100"
-          >
-            <!-- Project Image Placeholder -->
-
-            <img
-              src="https://via.placeholder.com/600x400/dddddd/777777?text=Proyek+TravelIn"
-              alt="Preview Proyek TravelIn Android App"
-              class="w-full h-56 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-semibold text-blue-700 mb-1">
-                <!-- Added Link Placeholder -->
-
-                <a
-                  href="#"
-                  class="hover:underline hover:text-blue-800 transition duration-200"
-                >
-                  TravelIn - Domestic Flight Booking App (Android)
-                </a>
-              </h3>
-              <p class="text-sm text-gray-500 mb-1">Feb 2023 – Jun 2023</p>
-              <p class="text-xs text-gray-500 mb-3 italic">
-                Associated with: Binar Academy - Project
-              </p>
-              <p class="text-gray-700 mb-4 flex-grow">
-                TravelIn is a comprehensive application... offering a seamless
-                user experience through modern technologies...
-              </p>
-              <div class="mb-4">
-                <h4 class="font-semibold text-gray-800 mb-2">
-                  Fitur Utama & Teknologi:
-                </h4>
-                <ul
-                  class="list-disc list-inside text-gray-700 space-y-1 text-sm"
-                >
-                  <li>Integrated RESTful APIs using Retrofit...</li>
-
-                  <!-- ... other points -->
-
-                  <li>Built an intuitive and responsive UI/UX...</li>
-                </ul>
-              </div>
-              <div class="mb-4">
-                <h4 class="font-semibold text-gray-800 mb-2">Teknologi:</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >Android</span
-                  >
-                  <span
-                    class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >Kotlin</span
-                  >
-
-                  <!-- ... other technologies -->
-
-                  <span
-                    class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >Dagger-Hilt</span
-                  >
-                </div>
-              </div>
-
-              <!-- Added Link Placeholders -->
-
-              <div class="mt-auto pt-4 border-t border-gray-200 flex space-x-4">
-                <!-- No Live link typically for unpublished Android apps, only source -->
-
-                <a
-                  href="#"
-                  class="inline-block bg-gray-700 text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-800 transition duration-300"
-                >
-                  <i class="fab fa-github mr-1"></i> Kode Sumber
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Technical Skills Section -->
-
     <section id="skills" class="bg-white">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
-          Keahlian Teknis
-        </h2>
-        <div
-          class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8 text-center"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <!-- Skill items remain the same -->
-
-          <div class="flex flex-col items-center space-y-2">
-            <i class="devicon devicon-react-original colored"></i>
-            <span class="text-sm font-medium text-gray-700">ReactJS</span>
-          </div>
-          <div class="flex flex-col items-center space-y-2">
-            <i class="devicon devicon-nodejs-plain colored"></i>
-            <span class="text-sm font-medium text-gray-700">NodeJS</span>
-          </div>
-
-          <!-- ... other skills -->
-
-          <div class="flex flex-col items-center space-y-2">
-            <i class="devicon devicon-googlecloud-plain colored"></i>
-            <span class="text-sm font-medium text-gray-700">Google Cloud</span>
-          </div>
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+                Keahlian Teknis
+            </h2>
+            <div id="skills-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                <!-- Konten Keahlian akan diisi oleh JS -->
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Certificates Section -->
-
     <section id="certificates" class="bg-gray-50">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
-          Sertifikat & Laporan
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Certificate items remain the same -->
-
-          <div
-            class="bg-white p-5 rounded-lg shadow-md border border-gray-200 text-center"
-            data-aos="fade-up"
-          >
-            <i class="fas fa-certificate text-3xl text-yellow-500 mb-3"></i>
-            <h3 class="text-lg font-semibold text-gray-800 mb-1">
-              Learn Basic Web Programming
-            </h3>
-            <p class="text-sm text-gray-600">Issuer: Dicoding</p>
-            <span
-              class="inline-block bg-green-100 text-green-800 text-xs font-medium mt-2 px-2.5 py-0.5 rounded"
-              >Certificate</span
-            >
-
-            <!-- Optional: Add placeholder link if verifiable -->
-
-            <a href="#" class="mt-2 text-xs text-blue-600 hover:underline"
-              >Lihat Sertifikat</a
-            >
-          </div>
-
-          <!-- ... other certificates -->
-
-          <div
-            class="bg-white p-5 rounded-lg shadow-md border border-gray-200 text-center"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <i class="fas fa-file-alt text-3xl text-blue-500 mb-3"></i>
-            <h3 class="text-lg font-semibold text-gray-800 mb-1">
-              Kampus Merdeka: Independent Study - Android Engineering
-            </h3>
-            <p class="text-sm text-gray-600">Issuer: Binar Academy</p>
-            <span
-              class="inline-block bg-blue-100 text-blue-800 text-xs font-medium mt-2 px-2.5 py-0.5 rounded"
-              >Final Report</span
-            >
-
-            <!-- Optional: Add placeholder link if available -->
-
-            <a href="#" class="mt-2 text-xs text-blue-600 hover:underline"
-              >Lihat Laporan</a
-            >
-          </div>
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+                Sertifikat & Laporan
+            </h2>
+            <div id="certificates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Konten Sertifikat akan diisi oleh JS -->
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- Organization Section -->
-
     <section id="organizations" class="bg-white">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
           Organisasi
         </h2>
-        <div class="max-w-2xl mx-auto">
-          <!-- Organization Item 1 -->
-
-          <div
-            class="bg-white p-6 rounded-lg shadow-md border border-gray-200"
-            data-aos="fade-up"
-          >
-            <div
-              class="flex flex-col md:flex-row justify-between md:items-center mb-2"
-            >
-              <h3 class="text-xl font-semibold text-blue-700">
-                Informatics Student Association
-              </h3>
-              <span class="text-sm text-gray-500 mt-1 md:mt-0"
-                >2022 – 2023</span
-              >
-            </div>
-            <p class="text-lg font-medium text-gray-800 mb-1">
-              Documentation Staff
-            </p>
-            <p class="text-sm text-gray-600">
-              <i class="fas fa-map-marker-alt mr-1"></i> Jakarta, Indonesia
-            </p>
-          </div>
+        <div id="organization-list" class="max-w-2xl mx-auto space-y-8">
+             <!-- Konten Organisasi akan diisi oleh JS -->
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-
     <section id="contact" class="bg-gradient-to-r from-blue-50 to-indigo-100">
-      <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Hubungi Saya</h2>
-        <p
-          class="text-lg text-gray-700 mb-10 max-w-2xl mx-auto"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          Tertarik untuk berkolaborasi atau ingin bertanya lebih lanjut? Jangan
-          ragu untuk menghubungi saya.
-        </p>
-        <div
-          class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div
-            class="flex items-center space-x-3 text-lg text-gray-800 hover:text-blue-600 transition duration-300"
-          >
-            <i class="fas fa-envelope fa-fw"></i>
-            <a href="mailto:riogriyaputra@gmail.com">riogriyaputra@gmail.com</a>
-          </div>
-          <div
-            class="flex items-center space-x-3 text-lg text-gray-800 hover:text-blue-600 transition duration-300"
-          >
-            <i class="fas fa-phone fa-fw"></i>
-            <a href="tel:+6281386308255">+62 813 8630 8255</a>
-          </div>
-          <div class="flex items-center space-x-3 text-lg text-gray-800">
-            <i class="fas fa-map-marker-alt fa-fw"></i>
-            <span>Tugu Utara, Koja, Jakarta Utara</span>
-          </div>
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8" data-aos="fade-up">Hubungi Saya</h2>
+            <p class="text-lg text-gray-700 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Tertarik untuk berkolaborasi atau ingin bertanya lebih lanjut? Jangan ragu untuk menghubungi saya.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center space-x-3 text-lg text-gray-800 hover:text-blue-600 transition duration-300">
+                    <i class="fas fa-envelope fa-fw"></i>
+                    <a id="contact-email" href="mailto:placeholder@example.com"><!-- Email diisi JS --></a>
+                </div>
+                <div class="flex items-center space-x-3 text-lg text-gray-800 hover:text-blue-600 transition duration-300">
+                    <i class="fas fa-phone fa-fw"></i>
+                    <a id="contact-phone" href="tel:12345"><!-- Phone diisi JS --></a>
+                </div>
+                <div class="flex items-center space-x-3 text-lg text-gray-800">
+                    <i class="fas fa-map-marker-alt fa-fw"></i>
+                    <span id="contact-location">Tugu Utara, Koja, Jakarta Utara</span> <!-- Ganti jika ada di data -->
+                </div>
+            </div>
+            <div id="social-links-contact" class="mt-10 flex justify-center space-x-6" data-aos="fade-up" data-aos-delay="300">
+                 <!-- Social links kontak akan diisi oleh JS -->
+            </div>
         </div>
-        <div
-          class="mt-10 flex justify-center space-x-6"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <!-- Social Links with actual URLs -->
-
-          <a
-            href="https://github.com/rioogp"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-700 hover:text-blue-600 transition duration-300"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github fa-2x"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/rio-griya-putra"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-700 hover:text-blue-600 transition duration-300"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin fa-2x"></i>
-          </a>
-        </div>
-      </div>
     </section>
 
     <!-- Footer -->
-
     <footer class="bg-gray-800 text-gray-300 py-6">
-      <div
-        class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm"
-      >
-        <p>
-          &copy; 2024 RIO GRIYA PUTRA. Dibuat dengan
-          <i class="fas fa-heart text-red-500"></i> dan Tailwind CSS.
-        </p>
-        <a href="#home" class="mt-2 inline-block hover:text-white"
-          >Kembali ke Atas <i class="fas fa-arrow-up ml-1"></i
-        ></a>
-      </div>
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>
+                &copy; <span id="footer-year"></span> <span id="footer-name"></span>. Dibuat dengan
+                <i class="fas fa-heart text-red-500"></i> dan Tailwind CSS.
+            </p>
+            <a href="#home" class="mt-2 inline-block hover:text-white">Kembali ke Atas <i class="fas fa-arrow-up ml-1"></i></a>
+        </div>
     </footer>
 
-    <!-- AOS (Animate On Scroll) JS -->
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ================================================== -->
+    <!--        DATA JAVASCRIPT (Idealnya di data.js)       -->
+    <!-- ================================================== -->
     <script>
-      AOS.init({
-        duration: 800,
-        once: false,
-      });
-
-      // Mobile Menu Toggle Script (remains the same)
-      const menuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const openIcon = menuButton.querySelector("svg:nth-child(1)");
-      const closeIcon = menuButton.querySelector("svg:nth-child(2)");
-
-      menuButton.addEventListener("click", () => {
-        const isExpanded =
-          menuButton.getAttribute("aria-expanded") === "true" || false;
-        menuButton.setAttribute("aria-expanded", !isExpanded);
-        mobileMenu.classList.toggle("hidden");
-        openIcon.classList.toggle("hidden");
-        openIcon.classList.toggle("block");
-        closeIcon.classList.toggle("hidden");
-        closeIcon.classList.toggle("block");
-        if (!isExpanded) {
-          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
-        } else {
-          mobileMenu.style.maxHeight = "0px";
-          setTimeout(() => {
-            if (mobileMenu.classList.contains("hidden")) {
-              mobileMenu.style.maxHeight = null;
-            }
-          }, 300);
-        }
-      });
-      const mobileNavLinks = mobileMenu.querySelectorAll("a");
-      mobileNavLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          menuButton.setAttribute("aria-expanded", "false");
-          mobileMenu.classList.add("hidden");
-          openIcon.classList.remove("hidden");
-          openIcon.classList.add("block");
-          closeIcon.classList.add("hidden");
-          closeIcon.classList.remove("block");
-          mobileMenu.style.maxHeight = "0px";
-          setTimeout(() => {
-            mobileMenu.style.maxHeight = null;
-          }, 300);
-        });
-      });
+    const data = {
+      personalInfo: {
+        name: "RIO GRIYA PUTRA",
+        title: "Full Stack Developer",
+        photo: "https://via.placeholder.com/200/E0E7FF/3B82F6?text=Foto+Profil", // <-- GANTI URL FOTO ANDA
+        contact: {
+          email: "riogriyaputra@gmail.com",
+          phone: "+6281386308255",
+          github: "https://github.com/rioogp", // <-- Pastikan URL lengkap
+          linkedin: "https://linkedin.com/in/rio-griya-putra", // <-- Pastikan URL lengkap
+          location: "Tugu Utara, Koja, Jakarta Utara" // <-- Tambahkan jika perlu
+        },
+        links: {
+          curriculumVitae: "#", // <-- GANTI LINK CV ANDA
+          portfolio: "#", // <-- GANTI LINK PORTFOLIO LAIN JIKA ADA
+        },
+        profileSummary:
+          "Fullstack Developer with over 1 year of experience in building end-to-end web and mobile applications using Java, Kotlin, Spring Boot for backend and ReactJS for frontend. Skilled in designing scalable APIs, managing relational databases with SQL, and crafting responsive, user-centric interfaces. Experienced in integrating frontend and backend seamlessly, optimizing performance, and maintaining clean, modular code across the stack. Passionate about delivering impactful products through continuous learning and collaboration. Always up to date with the latest in web technologies and best development practices.",
+      },
+      education: [
+        {
+          institution: "Universitas YARSI",
+          degree: "Informatics Engineering",
+          period: "2020 – 2024", // <-- Memperbaiki karakter aneh
+          location: "Jakarta, Indonesia",
+          gpa: "3.89 out of 4.00",
+          details: [
+            "Assistant Lecturer in Basic Programming [2021]",
+            "Assistant Lecturer in Basic Database [2022]",
+            "Assistant Lecturer in Object Oriented Programming [2023]",
+            "Assistant Lecturer in Basic Networking [2023]",
+            "Documentation Staff of HIMFO FTI [2022]",
+            "MSIB Batch 3 – Web Developer, Independent Study Program at Hacktiv8 [2022]",
+            "MSIB Batch 4 – Android Engineering, Independent Study Program at Binar Academy [2023]",
+          ],
+        },
+      ],
+      experience: [
+         {
+            title: "Kampus Merdeka: Independent Study - Android Engineering",
+            company: "Binar Academy",
+            period: "Feb 2023 – Jun 2023",
+            location: "Jakarta, Indonesia",
+            description: [
+                "Mastered Kotlin fundamentals, including syntax, data structures, control flow, classes, objects, and functions.",
+                "Developed Android applications with a focus on UI design, activity management, fragments, and seamless navigation.",
+                "Utilized Android development tools effectively to implement clean architecture and maintain high code quality.",
+                "Integrated key Android components such as ViewModel, Data Binding, and LiveData for efficient state management.",
+                "Implemented server communication using Retrofit and optimized local data storage with ROOM.",
+                "Managed background processes and applied best practices in Android app development.",
+                "Executed app development lifecycle, including design, implementation, and quality assurance for unpublished apps.",
+                "Collaborated with Fullstack Developer teams to build E-Flight App, a flight booking application.",
+            ],
+        },
+        {
+            title: "Kampus Merdeka: Independent Study - Web Developer",
+            company: "Hacktiv8",
+            period: "Aug 2022 – Dec 2022",
+            location: "Jakarta, Indonesia",
+            description: [
+                "Completed an intensive program focused on acquiring practical web development skills.",
+                "Mastered web development fundamentals, including HTML, CSS, and JavaScript basics.",
+                "Developed skills in creating responsive web interfaces adaptable to various devices.",
+                "Gained a comprehensive understanding of the full web development lifecycle (development to deployment).",
+                "Acquired practical experience in deploying web applications using online platforms.",
+                "Successfully designed, built, and deployed Demo App as part of the program.",
+            ],
+        },
+        {
+            title: "Object Oriented Programming Course - Assistant Lecturer",
+            company: "Universitas YARSI",
+            period: "Sep 2022 – Jan 2023",
+            location: "Jakarta, Indonesia",
+            description: [
+                "Facilitated the delivery of Object-Oriented Programming concepts, emphasizing the application of design patterns.",
+                "Guided students in mastering complex programming concepts and enhancing coding skills through lectures, hands-on assignments, and personalized support.",
+                "Led engaging lectures and discussions to simplify challenging topics, fostering a collaborative and inclusive learning environment.",
+                "Provided one-on-one mentorship, assisting students in troubleshooting coding issues and strengthening their development abilities.",
+                "Designed and implemented weekly programming tasks to reinforce key course concepts and encourage practical application.",
+                "Evaluated student assignments, offering constructive feedback to drive skill development and inspire creativity.",
+            ],
+        },
+        {
+            title: "Basic Database Course - Assistant Lecturer",
+            company: "Universitas YARSI",
+            period: "Feb 2022 – Jun 2022",
+            location: "Jakarta, Indonesia",
+            description: [
+                "Facilitated the teaching of Database Management Systems, SQL, and Data Modeling, ensuring comprehensive understanding among students.",
+                "Developed and delivered detailed teaching materials, including case studies and exercises, covering essential concepts such as:",
+                "Business Rules (Structural and Procedural)",
+                "Conceptual and Logical Data Modeling",
+                "Matrix Diagrams, Supertype and Subtype Entities",
+                "Database Normalization (1NF, 2NF, 3NF)",
+                "Transformation from Logical to Physical Data Models",
+                "Designed advanced SQL exercises using PostgreSQL, focusing on practical application, including:",
+                "Data Definition Language (DDL) and Data Manipulation Language (DML)",
+                "Complex SQL queries with SELECT, Joins, Grouping (GROUP BY), and Conditional Filtering (HAVING clause)",
+                "Result ordering with ORDER BY for data organization and presentation",
+            ],
+        },
+        {
+            title: "Basic Programming Course - Assistant Lecturer",
+            company: "Universitas YARSI",
+            period: "Sep 2021 – Jan 2022",
+            location: "Jakarta, Indonesia",
+            description: [
+                "Facilitated the teaching of fundamental programming concepts, focusing on algorithms, basic syntax, and problem-solving techniques.",
+                "Developed and curated comprehensive teaching materials and assignments for Java, covering key topics such as:",
+                "Introduction to Programming",
+                "Variables, Data Types, and Type Conversion",
+                "Arrays and Data Manipulation",
+                "Passing by Value vs. Passing by Reference",
+                "Control Flow Structures (if, switch, loops)",
+                "Non-Void vs. Void Methods and Their Applications",
+            ],
+        },
+      ],
+      projects: [
+        {
+          name: "K-etik Web App, Komite Etik Website",
+          image: "https://via.placeholder.com/600x400/cccccc/888888?text=Proyek+K-etik", // <-- GANTI URL GAMBAR
+          period: "Feb 2024 – Jul 2024", // <-- Menghapus duplikasi period
+          associatedWith: "Universitas YARSI - Project",
+          description:
+            "K-Etik is a web-based platform in collaboration with the YARSI University Ethics Committee, designed to streamline the submission, review, and approval process for research ethics proposals. The platform supports multiple user roles, including Applicants, Administrators, Reviewers, and Ethics Committee Chairs, improving workflow efficiency.",
+          keyFeaturesAndResponsibilities: [ // Mengganti nama key agar konsisten
+            "Led overall application design and managed client requirements from specification gathering to final delivery.",
+            "Built the responsive frontend using React, Vite, Tailwind CSS, and Material UI, implementing role-specific interfaces.",
+            "Developed the backend API using Node.js, Express.js, and MongoDB (with Mongoose) for data management and business logic.",
+            "Implemented secure authentication and authorization using JWT and Bcrypt.js.",
+            "Managed asynchronous data fetching and state on the frontend effectively with React Query.",
+            "Handled proposal submission workflows, including file uploads (Multer) and email notifications (NodeMailer).",
+          ],
+          technologies: [
+            "React", "Vite", "Tailwind CSS", "Material UI", "Node.js", "Express.js",
+            "MongoDB", "Mongoose", "JWT", "Bcrypt.js", "React Query", "Multer", "NodeMailer",
+          ],
+          liveLink: "#", // <-- GANTI LINK LIVE DEMO
+          sourceLink: "#" // <-- GANTI LINK SOURCE CODE
+        },
+        {
+          name: "TravelIn - Domestic Flight Booking App (Android)",
+          image: "https://via.placeholder.com/600x400/dddddd/777777?text=Proyek+TravelIn", // <-- GANTI URL GAMBAR
+          period: "Feb 2023 – Jun 2023",
+          associatedWith: "Binar Academy - Project",
+          description:
+            "TravelIn is a comprehensive application designed to assist users in booking domestic airline tickets. The app is accessible via both web and Android platforms, offering a seamless user experience through modern technologies such as MVVM architecture, Kotlin Coroutines for concurrency, and Firebase for real-time data management.",
+          keyFeaturesAndTechnologies: [ // Mengganti nama key agar konsisten
+            "Integrated RESTful APIs using Retrofit for real-time flight data synchronization.",
+            "Implemented offline data storage and caching using Room and DataStore.",
+            "Utilized Dagger-Hilt for dependency injection, enhancing modularity.",
+            "Applied Clean Architecture principles to ensure scalability and testability.",
+            "Built an intuitive and responsive UI/UX with Material Design and Navigation Component.",
+          ],
+          technologies: [
+            "Android", "Kotlin", "MVVM", "Kotlin Coroutines", "Firebase", "RESTful API",
+            "Retrofit", "Room", "DataStore", "Dagger-Hilt", "Clean Architecture",
+            "Material Design", "Navigation Component",
+          ],
+          liveLink: null, // Tidak ada live link untuk app Android ini biasanya
+          sourceLink: "#" // <-- GANTI LINK SOURCE CODE
+        },
+      ],
+      technicalSkills: [ // Daftar lengkap dari data
+        "ReactJS", "NodeJS", "Java", "Kotlin", "Spring Boot", "JavaScript", "HTML5", "CSS3",
+        "SQL", "MongoDB", "RESTful API", "Git", "Docker", "Postman", "Google Cloud Platform",
+        // Tambahkan skill lain jika ada
+      ],
+      certificatesAndReports: [ // Daftar lengkap dari data
+        {
+          title: "Learn Basic Web Programming",
+          issuer: "Dicoding",
+          type: "Certificate",
+          link: "#" // <-- GANTI LINK SERTIFIKAT
+        },
+        {
+          title: "Kampus Merdeka: Independent Study Program - Web Developer",
+          issuer: "Hacktiv8",
+          type: "Certificate/Report", // Bisa dipisah jika ada link berbeda
+          link: "#" // <-- GANTI LINK
+        },
+        {
+          title: "Kampus Merdeka: Independent Study Program - Android Engineering",
+          issuer: "Binar Academy",
+          type: "Certificate",
+          link: "#" // <-- GANTI LINK SERTIFIKAT
+        },
+        {
+          title: "Kampus Merdeka: Independent Study Program - Android Engineering",
+          issuer: "Binar Academy",
+          type: "Final Report",
+          link: "#" // <-- GANTI LINK LAPORAN
+        },
+      ],
+      organization: [
+        {
+          name: "Informatics Student Association",
+          role: "Documentation Staff",
+          period: "2022 – 2023",
+          location: "Jakarta, Indonesia",
+        },
+      ],
+    };
     </script>
-  </body>
+
+    <!-- ================================================== -->
+    <!--      JAVASCRIPT UNTUK RENDER DATA & INTERAKSI      -->
+    <!-- ================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- RENDER PERSONAL INFO ---
+            const personalInfo = data.personalInfo;
+            document.getElementById('nav-brand').textContent = personalInfo.name.split(' ')[0] + ' G.P.'; // Inisial Nama
+            document.getElementById('profile-photo').src = personalInfo.photo;
+            document.getElementById('profile-photo').alt = `Foto Profil ${personalInfo.name}`;
+            document.getElementById('profile-name').textContent = personalInfo.name;
+            document.getElementById('profile-title').textContent = personalInfo.title;
+            // Ambil kalimat pertama untuk hero summary
+            const summarySentences = personalInfo.profileSummary.match(/[^.!?]+[.!?]+/g);
+            document.getElementById('profile-summary-hero').textContent = summarySentences ? summarySentences.slice(0, 2).join(' ') + '...' : personalInfo.profileSummary.substring(0, 150) + '...';
+            document.getElementById('profile-summary-about').textContent = personalInfo.profileSummary;
+
+            // Render Social Links (Hero & Contact)
+            const socialLinksHeroContainer = document.getElementById('social-links-hero');
+            const socialLinksContactContainer = document.getElementById('social-links-contact');
+            socialLinksHeroContainer.innerHTML = ''; // Clear existing
+            socialLinksContactContainer.innerHTML = ''; // Clear existing
+
+            if (personalInfo.contact.github) {
+                const githubLink = `
+                    <a href="${personalInfo.contact.github}" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-blue-600 transition duration-300" aria-label="GitHub">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>`;
+                socialLinksHeroContainer.innerHTML += githubLink;
+                socialLinksContactContainer.innerHTML += githubLink;
+            }
+            if (personalInfo.contact.linkedin) {
+                const linkedinLink = `
+                    <a href="${personalInfo.contact.linkedin}" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-blue-600 transition duration-300" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>`;
+                socialLinksHeroContainer.innerHTML += linkedinLink;
+                socialLinksContactContainer.innerHTML += linkedinLink;
+            }
+             // Tambahkan ikon email & phone hanya di Hero jika diinginkan
+             if (personalInfo.contact.email) {
+                socialLinksHeroContainer.innerHTML += `
+                    <a href="mailto:${personalInfo.contact.email}" class="text-gray-700 hover:text-blue-600 transition duration-300" aria-label="Email">
+                        <i class="fas fa-envelope fa-2x"></i>
+                    </a>`;
+             }
+              if (personalInfo.contact.phone) {
+                socialLinksHeroContainer.innerHTML += `
+                    <a href="tel:${personalInfo.contact.phone.replace(/\s/g, '')}" class="text-gray-700 hover:text-blue-600 transition duration-300" aria-label="Phone">
+                        <i class="fas fa-phone fa-2x"></i>
+                    </a>`;
+             }
+
+
+            // Render CV and Portfolio links
+            document.getElementById('cv-link').href = personalInfo.links.curriculumVitae;
+            document.getElementById('portfolio-link').href = personalInfo.links.portfolio;
+            if (!personalInfo.links.curriculumVitae || personalInfo.links.curriculumVitae === '#') {
+                 document.getElementById('cv-link').style.display = 'none';
+            }
+             if (!personalInfo.links.portfolio || personalInfo.links.portfolio === '#') {
+                 document.getElementById('portfolio-link').style.display = 'none';
+            }
+
+
+            // --- RENDER EDUCATION ---
+            const educationList = document.getElementById('education-list');
+            educationList.innerHTML = ''; // Clear existing
+            data.education.forEach(edu => {
+                const detailsHtml = edu.details.map(detail => `<li>${detail}</li>`).join('');
+                educationList.innerHTML += `
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200" data-aos="fade-up">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                            <h3 class="text-xl font-semibold text-blue-700">${edu.institution}</h3>
+                            <span class="text-sm text-gray-500 mt-1 md:mt-0">${edu.period}</span>
+                        </div>
+                        <p class="text-lg font-medium text-gray-800 mb-1">${edu.degree}</p>
+                        <p class="text-sm text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i> ${edu.location} | GPA: ${edu.gpa}
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                            ${detailsHtml}
+                        </ul>
+                    </div>
+                `;
+            });
+
+            // --- RENDER EXPERIENCE ---
+            const experienceList = document.getElementById('experience-list');
+            experienceList.innerHTML = ''; // Clear existing
+            data.experience.forEach((exp, index) => {
+                const descriptionHtml = exp.description.map(desc => `<li>${desc}</li>`).join('');
+                experienceList.innerHTML += `
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200" data-aos="${index % 2 === 0 ? 'fade-left' : 'fade-right'}">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                            <h3 class="text-xl font-semibold text-blue-700">${exp.title}</h3>
+                            <span class="text-sm text-gray-500 mt-1 md:mt-0">${exp.period}</span>
+                        </div>
+                        <p class="text-lg font-medium text-gray-800 mb-1">${exp.company}</p>
+                        <p class="text-sm text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i> ${exp.location}
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                            ${descriptionHtml}
+                        </ul>
+                    </div>
+                `;
+            });
+
+            // --- RENDER PROJECTS ---
+            const projectsGrid = document.getElementById('projects-grid');
+            projectsGrid.innerHTML = ''; // Clear existing
+            data.projects.forEach((proj, index) => {
+                const featuresHtml = (proj.keyFeaturesAndResponsibilities || proj.keyFeaturesAndTechnologies || []).map(feat => `<li>${feat}</li>`).join('');
+                const techHtml = proj.technologies.map(tech => {
+                    // Simple coloring based on common tech types (can be expanded)
+                    let bgColor = 'bg-gray-100';
+                    let textColor = 'text-gray-800';
+                    if (['react', 'vite', 'node.js', 'express.js', 'javascript'].includes(tech.toLowerCase())) { bgColor = 'bg-blue-100'; textColor = 'text-blue-800'; }
+                    else if (['android', 'kotlin', 'java', 'spring boot'].includes(tech.toLowerCase())) { bgColor = 'bg-green-100'; textColor = 'text-green-800'; }
+                    else if (['mongodb', 'sql'].includes(tech.toLowerCase())) { bgColor = 'bg-yellow-100'; textColor = 'text-yellow-800'; }
+                    else if (['tailwind css', 'material ui', 'css3', 'html5'].includes(tech.toLowerCase())) { bgColor = 'bg-purple-100'; textColor = 'text-purple-800'; }
+                    else if (['docker', 'google cloud platform', 'firebase'].includes(tech.toLowerCase())) { bgColor = 'bg-red-100'; textColor = 'text-red-800'; }
+
+                    return `<span class="${bgColor} ${textColor} text-xs font-medium px-2.5 py-0.5 rounded">${tech}</span>`;
+                }).join('');
+
+                projectsGrid.innerHTML += `
+                    <div class="bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col overflow-hidden" data-aos="zoom-in-up" data-aos-delay="${index * 100}">
+                        <img src="${proj.image}" alt="Preview Proyek ${proj.name}" class="w-full h-56 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-blue-700 mb-1">
+                                <a href="${proj.liveLink || proj.sourceLink || '#'}" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-blue-800 transition duration-200">
+                                    ${proj.name}
+                                </a>
+                            </h3>
+                            <p class="text-sm text-gray-500 mb-1">${proj.period}</p>
+                            ${proj.associatedWith ? `<p class="text-xs text-gray-500 mb-3 italic">Associated with: ${proj.associatedWith}</p>` : '<p class="mb-3"></p>'}
+                            <p class="text-gray-700 mb-4 flex-grow">${proj.description}</p>
+                            ${featuresHtml ? `
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-gray-800 mb-2">Fitur Utama & ${proj.keyFeaturesAndResponsibilities ? 'Tanggung Jawab' : 'Teknologi'}:</h4>
+                                <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                                    ${featuresHtml}
+                                </ul>
+                            </div>` : ''}
+                            <div class="mb-4">
+                                <h4 class="font-semibold text-gray-800 mb-2">Teknologi:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    ${techHtml}
+                                </div>
+                            </div>
+                            <div class="mt-auto pt-4 border-t border-gray-200 flex space-x-4">
+                                ${proj.liveLink && proj.liveLink !== '#' ? `
+                                <a href="${proj.liveLink}" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700 transition duration-300">
+                                    <i class="fas fa-external-link-alt mr-1"></i> Lihat Live
+                                </a>` : ''}
+                                ${proj.sourceLink && proj.sourceLink !== '#' ? `
+                                <a href="${proj.sourceLink}" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-700 text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-800 transition duration-300">
+                                    <i class="fab fa-github mr-1"></i> Kode Sumber
+                                </a>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // --- RENDER TECHNICAL SKILLS ---
+            const skillsGrid = document.getElementById('skills-grid');
+            skillsGrid.innerHTML = ''; // Clear existing
+            const skillIconMap = { // Map names to Devicon classes (add more as needed)
+                'reactjs': 'devicon-react-original colored',
+                'nodejs': 'devicon-nodejs-plain colored',
+                'java': 'devicon-java-plain colored',
+                'kotlin': 'devicon-kotlin-plain colored',
+                'springboot': 'devicon-spring-plain colored', // 'spring boot' -> 'springboot'
+                'javascript': 'devicon-javascript-plain colored',
+                'html5': 'devicon-html5-plain colored',
+                'css3': 'devicon-css3-plain colored',
+                'sql': 'devicon-postgresql-plain colored', // Assuming PostgreSQL or generic SQL
+                'mongodb': 'devicon-mongodb-plain colored',
+                'restful api': 'fas fa-cogs', // Generic icon for API
+                'git': 'devicon-git-plain colored',
+                'docker': 'devicon-docker-plain colored',
+                'postman': 'devicon-postman-plain colored', // Need Postman devicon if available, else generic
+                'google cloud platform': 'devicon-googlecloud-plain colored',
+            };
+            data.technicalSkills.forEach(skill => {
+                const skillKey = skill.toLowerCase().replace(/\s+/g, ''); // Normalize key
+                const iconClass = skillIconMap[skillKey] || 'fas fa-laptop-code'; // Default icon
+                skillsGrid.innerHTML += `
+                    <div class="flex flex-col items-center space-y-2">
+                        <i class="${iconClass.startsWith('devicon') ? 'devicon' : ''} ${iconClass}"></i>
+                        <span class="text-sm font-medium text-gray-700">${skill}</span>
+                    </div>
+                `;
+            });
+
+            // --- RENDER CERTIFICATES & REPORTS ---
+            const certificatesGrid = document.getElementById('certificates-grid');
+            certificatesGrid.innerHTML = ''; // Clear existing
+            data.certificatesAndReports.forEach((cert, index) => {
+                const isReport = cert.type.toLowerCase().includes('report');
+                const iconClass = isReport ? 'fas fa-file-alt text-blue-500' : 'fas fa-certificate text-yellow-500';
+                const tagBg = isReport ? 'bg-blue-100' : 'bg-green-100';
+                const tagText = isReport ? 'text-blue-800' : 'text-green-800';
+                const linkText = isReport ? 'Lihat Laporan' : 'Lihat Sertifikat';
+
+                certificatesGrid.innerHTML += `
+                    <div class="bg-white p-5 rounded-lg shadow-md border border-gray-200 text-center" data-aos="fade-up" data-aos-delay="${index * 100}">
+                        <i class="${iconClass} text-3xl mb-3"></i>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-1">${cert.title}</h3>
+                        <p class="text-sm text-gray-600">Issuer: ${cert.issuer}</p>
+                        <span class="inline-block ${tagBg} ${tagText} text-xs font-medium mt-2 px-2.5 py-0.5 rounded">${cert.type}</span>
+                        ${cert.link && cert.link !== '#' ? `
+                        <a href="${cert.link}" target="_blank" rel="noopener noreferrer" class="mt-2 block text-xs text-blue-600 hover:underline">${linkText}</a>
+                        ` : ''}
+                    </div>
+                `;
+            });
+
+             // --- RENDER ORGANIZATION ---
+            const organizationList = document.getElementById('organization-list');
+            organizationList.innerHTML = ''; // Clear existing
+            data.organization.forEach((org, index) => {
+                organizationList.innerHTML += `
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200" data-aos="fade-up" data-aos-delay="${index * 100}">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                            <h3 class="text-xl font-semibold text-blue-700">${org.name}</h3>
+                            <span class="text-sm text-gray-500 mt-1 md:mt-0">${org.period}</span>
+                        </div>
+                        <p class="text-lg font-medium text-gray-800 mb-1">${org.role}</p>
+                        <p class="text-sm text-gray-600">
+                            <i class="fas fa-map-marker-alt mr-1"></i> ${org.location}
+                        </p>
+                    </div>
+                `;
+            });
+
+
+            // --- RENDER CONTACT INFO ---
+            const contact = personalInfo.contact;
+            const emailLink = document.getElementById('contact-email');
+            const phoneLink = document.getElementById('contact-phone');
+            const locationSpan = document.getElementById('contact-location');
+
+            if (emailLink && contact.email) {
+                emailLink.href = `mailto:${contact.email}`;
+                emailLink.textContent = contact.email;
+            }
+            if (phoneLink && contact.phone) {
+                phoneLink.href = `tel:${contact.phone.replace(/\s/g, '')}`; // Hapus spasi untuk href tel
+                phoneLink.textContent = contact.phone;
+            }
+             if (locationSpan && contact.location) {
+                locationSpan.textContent = contact.location;
+            }
+
+
+            // --- RENDER FOOTER INFO ---
+            document.getElementById('footer-year').textContent = new Date().getFullYear();
+            document.getElementById('footer-name').textContent = personalInfo.name;
+
+
+            // --- INITIALIZE AOS ---
+            AOS.init({
+                duration: 800,
+                once: false, // Set true jika ingin animasi hanya sekali
+            });
+
+            // --- REFRESH AOS FOR DYNAMIC CONTENT ---
+            // Beri sedikit waktu agar DOM update sebelum refresh AOS
+            setTimeout(() => {
+                AOS.refresh();
+                // Make dynamically added elements visible after AOS refresh
+                 document.querySelectorAll('#experience-list > div, #projects-grid > div, #certificates-grid > div, #organization-list > div').forEach(el => el.style.opacity = 1);
+            }, 100); // Waktu tunggu bisa disesuaikan
+
+        }); // End DOMContentLoaded
+
+        // --- Mobile Menu Toggle Script (Tetap sama) ---
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const openIcon = menuButton.querySelector("svg:nth-child(1)");
+        const closeIcon = menuButton.querySelector("svg:nth-child(2)");
+
+        menuButton.addEventListener("click", () => {
+            const isExpanded = menuButton.getAttribute("aria-expanded") === "true" || false;
+            menuButton.setAttribute("aria-expanded", !isExpanded);
+            mobileMenu.classList.toggle("hidden");
+            openIcon.classList.toggle("hidden");
+            openIcon.classList.toggle("block");
+            closeIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("block");
+            // Animasi max-height
+            if (!isExpanded) {
+                mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+            } else {
+                mobileMenu.style.maxHeight = "0px";
+                 // Reset maxHeight setelah transisi selesai agar tidak mengganggu state 'hidden'
+                 setTimeout(() => {
+                     if (mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.style.maxHeight = null;
+                     }
+                 }, 300); // Sesuaikan dengan durasi transisi CSS
+            }
+        });
+        // Close mobile menu on link click
+        const mobileNavLinks = mobileMenu.querySelectorAll("a");
+        mobileNavLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                menuButton.setAttribute("aria-expanded", "false");
+                mobileMenu.classList.add("hidden");
+                openIcon.classList.remove("hidden");
+                openIcon.classList.add("block");
+                closeIcon.classList.add("hidden");
+                closeIcon.classList.remove("block");
+                mobileMenu.style.maxHeight = "0px";
+                 setTimeout(() => {
+                     mobileMenu.style.maxHeight = null;
+                 }, 300);
+            });
+        });
+
+    </script>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Inisialisasi AOS sudah dipindahkan ke dalam script utama setelah DOMContentLoaded -->
+
+</body>
 </html>
